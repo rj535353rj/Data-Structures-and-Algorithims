@@ -1,4 +1,4 @@
-#include "AbstracitList.h"
+#include "AbstractList.h"
 #include <stdio.h>
 
 #define list( type ) ArrayList__ ## type 
@@ -42,15 +42,28 @@
 	void list( type ) ## __insert ( list( type ) *this, type element, int index) {\
 		if( this->size > index ){\
 			perror("list index exeeds upper bounds");\
+			return;\
 		}\
 		if( this->size < 0 ){\
 			perror("list index exeeds lower bounds. AKA fucked up big time");\
+				return;\
 		}\
 		if( this->size == this->capacity ){\
 			list( type ) ## __increaseCapacity( this );\
 		}\
-		this->data[size] = element;\\
-		(this->size)++;\
+		if( index == this->size ){\
+			this->data[size] = element;\
+			(this->size)++;\
+		} else {\
+			type current = this->data[ index ];\
+			for(int i = index + 1; i < this->size; i++){\
+				type temp = (this->data)[ i ];\
+				( thisi->data )[ i ] = ( this->data )[ i ];\
+				current = temp;\
+			}\
+			( this->data )[ index ] = element;\
+			(this->size)++;\
+		}\
 	}
 
 	
