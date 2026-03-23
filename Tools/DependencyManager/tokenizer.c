@@ -1,0 +1,5 @@
+char tokenCounter
+
+char* nextToken(){
+
+}
