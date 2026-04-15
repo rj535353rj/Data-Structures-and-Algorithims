@@ -1,0 +1,50 @@
+#this txt contains a tree of all the classes in the project
+
+This is not the full list as the scope may increase with time.
+
+:Object
+  |--:Collection
+  |    |--:List<T>
+  |    |    |--:LinkedList<T>
+  |    |    |--:ArrayList<T>
+  |    |    |    |--:String
+  |    |    |
+  |    |    |--:VectorList<T>
+  |    |    |--:RolledList<T>
+  |    |
+  |    |--:Set<T>
+  |    |    |--:HashSet<T>
+  |    |    |--:TreeSet<T>
+  |    |    |--:BitSet<T>
+  |    |    |--:BloomSet<T>
+  |    |    
+  |    |--:Map<T,V>
+  |    |    |--;OrderedMap<T,V>
+  |    |    |    |--:TreeMap<T,V>
+  |    |    |--:UnorderedMap<T,V>
+  |    |         |--:HashMap<T,V>
+  |    |              |--:StaticMap<T,V>
+  |    |         |--:LinkedMap<T,V>
+  |    |         |--:RadixMap<T,V>
+  |    |    
+  |    |--:Queue<T>
+  |    |--:Deque<T>
+  |    |--:Stack<T>
+  |
+  |--:Iterator<T>
+  |    |--:ListIterator<T>
+  |    |    |--:LinkedIterator<T>
+  |    |    |--:ArrayIterator<T>
+  |    |    |    |--:StringIterator<T>
+  |    |    |
+  |    |    |--:VectorIterator<T>
+  |    |    |--:RolledIterator<T>
+  |    |--:QueueIterator<T>
+  |    |--:DequeIterator<T>
+  |    |--:Stackiterator<T>
+  |
+  |--:Exception
+  |--:Number # a wrapper for all the number types
+  |--:Stream
+  |--:Event
+  |--:EventHandler
