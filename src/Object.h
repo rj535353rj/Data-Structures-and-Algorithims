@@ -6,6 +6,6 @@
 	typedef struct object *Object;
 	extern Object Object_Copy(Object this);
 	extern void Object_Destructor(Object this);
-	extern Class_Struct object_class;
+	extern Object new_Object();
 
 #endif

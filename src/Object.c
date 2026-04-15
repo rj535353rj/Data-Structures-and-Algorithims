@@ -1,20 +1,20 @@
-#inlcude "ObjectPrototype.h"
+#include "ObjectPrototype.h"
 
-Class_Struct object_class;
+struct Class_Struct object_class;
 
 static
-Object base_copy( Object this, Class ansestor ) { //note this function is recursive;
+Object base_copy( Object this, Class ancestor ) { //note this function is recursive;
 	if ( ancestor->copy ) {
 		return ancestor->copy(this);
 	} else {
 		if ( ancestor->parent ) {
-			return base_copy(this, ansestor->parent);
+			return base_copy(this, ancestor->parent);
 		} else {
 			Object new = (Object) malloc(this->class->byte_size);
 			char *byte = (char*) this;
 			char *target = (char*) new;
 			for( unsigned int i = 0; i < this->class->byte_size; i++ ){
-				target + i = byte + i; //we copy all the data from the original to the copy
+				target[i] = byte[i]; //we copy all the data from the original to the copy
 			}
 			return new;
 		}
@@ -53,7 +53,7 @@ void base_destructor( Object this, Class ancestor) {
 		return;
 	} else {
 		if ( ancestor->parent ) {
-			base_destrucotr(this, ancestor->parent);
+			base_destructor(this, ancestor->parent);
 			return;
 		} else {
 			free(this);
@@ -67,7 +67,7 @@ void Object_Destructor( Object this ){
 
 Object new_Object(){
 	Object new = (Object) malloc(object_class.byte_size);
-	new.class = &object_class;
+	new->class = &object_class;
 }
 
-object_class = { sizeof(Object_Struct), NULL, NULL, NULL, NULL};
+struct Class_Struct object_class = { (unsigned int) sizeof(struct object), NULL, NULL, NULL, NULL};
