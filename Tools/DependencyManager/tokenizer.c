@@ -1,5 +1,0 @@
-char tokenCounter
-
-char* nextToken(){
-
-}
